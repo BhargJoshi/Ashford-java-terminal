@@ -187,7 +187,7 @@ public final class ApiServer {
 
     private void staticFile(HttpExchange ex) throws IOException {
         String path = URLDecoder.decode(ex.getRequestURI().getPath(), StandardCharsets.UTF_8);
-        if (path.equals("/")) path = "/ashford-market-terminal.html";
+        if (path.equals("/")) path = "/index.html";
         Path root = cfg.staticDir().toAbsolutePath().normalize();
         Path f = root.resolve(path.substring(1)).normalize();
         if (!f.startsWith(root) || !Files.isRegularFile(f)) throw new ApiException(404, "not_found", "Not found.");
