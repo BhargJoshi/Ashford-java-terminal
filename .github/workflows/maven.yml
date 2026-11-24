@@ -23,5 +23,10 @@ jobs:
           cache: maven
           cache-dependency-path: backend/pom.xml
 
+      
       - name: Build and run tests
         run: mvn -B verify -f backend/pom.xml
+
+      - name: Verify Docker image build
+        run: docker build -t ashford-java-terminal:test .
+
